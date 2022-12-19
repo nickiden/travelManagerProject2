@@ -5,7 +5,7 @@
 //  Comment :
 //              A travel management system that will manage user data class,
 //              Find destinations, and output the users travel information.
-//              This Project is created to practice c++ organization, classes, and file                 management.
+//              This Project is created to practice c++ organization, classes, and file management.
 
 #include <iostream>
 #include <fstream>
@@ -23,13 +23,131 @@ using namespace std;
 
 class Customers
 {
-public:
+private:
+    
     string name;
     string gender;
     string address;
     int age;
     string phone;
     int customerId;
+  
+    
+public:
+    
+    // create setter functions ###############################
+    void setName(string n)
+    {
+        if (n == "") // check if string is empty
+        {
+            name = "N/A";
+        }
+        else
+        {
+            name = n;
+        }
+      
+    }
+    
+    void setGender(string g)
+    {
+        if (g == "")
+        {
+            gender = "N/A";
+        }
+        else
+        {
+            gender = g;
+        }
+        
+    }
+    
+    void setAddress(string a)
+    {
+        if (a == "")
+        {
+            address = "N/A";
+        }
+        else
+        {
+            address = a;
+        }
+        
+    }
+    
+    void setAge(int a)
+    {
+        if (a <= 0)
+        {
+            age = 0;
+        }
+        else
+        {
+            age = a;
+        }
+        age = a;
+    }
+    
+    void setPhone(string p)
+    {
+        if (p == "")
+        {
+            phone = "N/A";
+        }
+        else
+        {
+            phone = p;
+        }
+        
+    }
+    
+    void setCustId(int c)
+    {
+        if (c <= 0)
+        {
+            customerId = 0;
+        }
+        else
+        {
+            customerId = c;
+
+        }
+    }
+    
+    
+    // create getters to access private variables ###################
+    
+    string getName()
+    {
+        return name;
+    }
+    
+    string getGender()
+    {
+        return gender;
+    }
+    
+    string getAddress()
+    {
+        return address;
+    }
+    
+    int getAge()
+    {
+        return age;
+    }
+    
+    string getPhone()
+    {
+        return phone;
+    }
+    
+    int getCustId()
+    {
+        return customerId;
+    }
+    
+    
     
     
     // method   : getDetails
