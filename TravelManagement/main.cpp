@@ -31,6 +31,7 @@ private:
     int age;
     string phone;
     int customerId;
+    char allDeets[1000];
   
     
 public:
@@ -170,6 +171,128 @@ public:
             cout << "Enter Gender: ";
             cin >> gender;
         }
+        output << "\nCustomer ID: " << customerId << "\nName: " << name << "\nAge: " << age << "\nPhone" << phone << "\nAddress: " << address << "\ngender: " << gender << endl;
+        
+        output.close(); // close stream
+        
+        cout << "\nSAVED \n"<<endl;
+    }
+    
+    // method   :   showDetails
+    // comment  :
+    //              Check if file is created, if so save in an array and display
+    void showDetails()
+    {
+        ifstream input("old-customers.txt");
+        {
+            // check that there is an input
+            if(!input)
+            {
+                cout << "Sorry, File Error"<< endl;
+            }
+            while((!(input.eof()))) // loop through file print contents
+            {
+                input.getline(allDeets,1000);
+                cout << allDeets << endl;
+            }
+            input.close();  // close stream
+            
+        }
+    }
+  
+    
+};
+
+// class : flights
+// date  : December 21st, 2022
+// comment : manage the flight data for the booking
+class flights
+{
+private:
+    int flightNum;
+    int distance;
+    float price;
+    
+public:
+    
+// mutator methods to change flight data
+    void setFlightNum(int f)
+    {
+        if (f <= 0 || f > 2)
+        {
+            flightNum = 0;
+        }
+        else
+        {
+            flightNum = f;
+
+        }
+    }
+    
+    void setDistance(int d)
+    {
+        if (d <= 0)
+        {
+            distance = 0;
+        }
+        else
+        {
+            distance = d;
+
+        }
+    }
+    
+    void setPrice(float p)
+    {
+        if (p <= 0)
+        {
+            price = 0;
+        }
+        else
+        {
+            price = p;
+
+        }
+    }
+    
+    // acessor methods to access flight data
+    
+    int getFlightNum()
+    {
+        return flightNum;
+    }
+    
+    int getDistance()
+    {
+        return distance;
+    }
+    
+    float getPrice()
+    {
+        return price;
+    }
+    
+    void flightDetails()
+    {
+        int flightBuff = 0;
+        int distBuff = 0;
+        
+        cout << "Looking for the best prices on flights? Look no further!!!! "<< endl;
+        cout << "-------------- Cheap Flights Co. ------------------" << endl;
+        cout << "1. Fly Econo class for $ .45 US a km" << endl;
+        cout << "2. Fly First class for $ .75 US " << endl;
+        
+        
+        // get user input
+        cout << "\n To calculate the cost of your jurney" << endl;
+        cout << "Enter class you would like to fly (Option 1 or 2): ";
+        cin >> flightBuff;
+        setFlightNum(flightBuff);
+        
+        cout << "Enter the Kilometers you would like to fly: ";
+        cin >> distBuff;
+        setDistance(distBuff);
+        cin >> distance;
         
         
     }
