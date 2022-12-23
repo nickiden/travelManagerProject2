@@ -276,6 +276,11 @@ public:
     {
         int flightBuff = 0;
         int distBuff = 0;
+        float ecoCost = .45;
+        float firstClCost = .75;
+        int flightChoice = 0;
+        float costTotal = 0.00;
+        int optConfirm = 0;
         
         cout << "Looking for the best prices on flights? Look no further!!!! "<< endl;
         cout << "-------------- Cheap Flights Co. ------------------" << endl;
@@ -294,7 +299,60 @@ public:
         setDistance(distBuff);
         cin >> distance;
         
+        if(flightChoice == 1)
+        {
+            costTotal = distBuff * ecoCost;
+            cout << "Your Total cost for Econo class is $" << costTotal<< endl;
+            cout << "Press 1 to confirm: or";
+            cout << "Press 2 for more options: ";
+            cin >> optConfirm;
+            
+            system("CLS");
+        }
+        else if(flightChoice == 2)
+        {
+            costTotal = distBuff * firstClCost;
+            cout << "Your Total cost for Econo class is $" << firstClCost<< endl;
+            cout << "Press 1 to confirm: or";
+            cout << "Press 2 for more options: ";
+            cin >> optConfirm;
+        }
+        else
+        {
+            cout << "Sorry, invalid option selected" << endl;
+            cout << "Press 2 for more options: ";
+            cin >> optConfirm;
+        }
         
+        // confirm option selected by user
+        if(optConfirm == 1)
+        {
+            setPrice(costTotal);
+            cout << "\nYou are booked for your flight. Go to main menu for recipt. "<< endl;
+        }
+        else if(optConfirm == 2)
+        {
+            flightDetails(); // back to menu
+        }
+        else
+        {
+            cout << "Invalid option" << endl; // sleep redirect to previous menu.
+            // menu();
+            
+        }
+        
+        cout << "\nPress 1 to reDirect to main menu: ";
+        cin >> flightChoice;
+        system("CLS");
+        
+        if(flightChoice == 1)
+        {
+           // menu();
+        }
+        else
+        {
+            //menu();
+        }
     }
     
 };
@@ -306,6 +364,101 @@ public:
 
 class Booking
 {
+    
+private:
+    int hotelChoice;
+    int packChoice;
+    float hotelCost;
+    
+    // mutators and accessors for the booking class.
+    void setHotelChoice(int h)
+    {
+        if (h <= 0 || h > 2)
+        {
+            hotelChoice = 0;
+        }
+        else
+        {
+           hotelChoice = h;
+
+        }
+    }
+    
+    void setPackChoice(int p)
+    {
+        if (p <= 0)
+        {
+           packChoice= 0;
+        }
+        else
+        {
+            packChoice = p;
+
+        }
+    }
+    
+    void setHotelPrice(float p)
+    {
+        if (p <= 0)
+        {
+            hotelCost = 0;
+        }
+        else
+        {
+            hotelCost = p;
+
+        }
+    }
+    
+    // acessor methods to access hotel data
+    
+    int getHotelChoice()
+    {
+        return hotelChoice;
+    }
+    
+    int getPackChoice()
+    {
+        return packChoice;
+    }
+    
+    float gethotelPrice()
+    {
+        return hotelCost;
+    }
+    
+    
+    // Method   : hotels()
+    // Date     : Dec 23rd, 2022
+    // Comment  :
+    //
+    void hotels()
+    {
+        int hotelBuff = 0;
+        string hotelNo[] = {"Best Western", "The Delta", "The Hilton"};
+        
+        // loop through the hotel options
+        for(int i = 0; i < 3; i++ )
+        {
+            cout << (i + 1) << ".Hotel" << hotelNo[i] << endl;
+            
+        }
+        
+        cout << "\nCurrently we are working with these top hotels" << endl;
+        cout << "Press any key to go back or Enter the number of Hotel: " << endl;
+        cin >> hotelBuff;
+        setHotelChoice(hotelBuff);
+        
+        system("CLS");
+        
+        // manage hotel choices
+        if(hotelChoice == 1)
+        {
+            
+        }
+        
+        
+    }
     
 };
 
