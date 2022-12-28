@@ -206,7 +206,7 @@ public:
 // class : flights
 // date  : December 21st, 2022
 // comment : manage the flight data for the booking
-class flights
+class Flights
 {
 private:
     int flightNum;
@@ -360,7 +360,8 @@ public:
 
 // class : Booking
 // date  : Dec 19th, 2022
-// comment : Contains all the attrubutes for the booking
+// comment : Contains all the attrubutes for the booking. This will also have the
+//           Methods to handle the hotal package options menu.
 
 class Booking
 {
@@ -370,10 +371,11 @@ private:
     int packChoice;
     float hotelCost;
     
+public:
     // mutators and accessors for the booking class.
     void setHotelChoice(int h)
     {
-        if (h <= 0 || h > 2)
+        if (h <= 0)
         {
             hotelChoice = 0;
         }
@@ -435,6 +437,8 @@ private:
     void hotels()
     {
         int hotelBuff = 0;
+        int packageBuff = 0;
+        int goMenu;
         string hotelNo[] = {"Best Western", "The Delta", "The Hilton"};
         
         // loop through the hotel options
@@ -454,9 +458,171 @@ private:
         // manage hotel choices
         if(hotelChoice == 1)
         {
+            cout << "------------- Welcome to the Best Western Hotel!!! -------\n" << endl;
+            cout << "Packages we offer: \n" << endl;
             
+            cout << "1. Standard Package starting at $1000" << endl;
+            cout << "2. Premium Package starting at $5000" << endl;
+            cout << "3. Luxury Package starting at 10000" << endl;
+            
+            cout << "\nSelect an option number above or press any other key to return to previous menu: " << endl;
+            cin >> packageBuff;
+            setPackChoice(packageBuff);
+            
+            // print out package selection otions
+            int newPacChoice = getPackChoice();
+            
+            if(newPacChoice == 1)
+            {
+                setHotelChoice(1000.00);
+                
+                cout << " \nYou have booked your Standard reservation at the Best Western" << endl;
+            }
+            else if(newPacChoice == 2)
+            {
+                setHotelChoice(5000.00);
+                
+                cout << " \nYou have booked your Premium reservation at the Best Western" << endl;
+            }
+            else if(newPacChoice == 3)
+            {
+                setHotelChoice(10000.00);
+                
+                cout << " \nYou have booked your Luxury reservation at the Best Western" << endl;
+                
+            }
+            else
+            {
+                cout << "Sorry that is invalid input, redirecting to previous menu" << endl;
+                system("CLS");
+                hotels();
+            }
+            
+            cout << "\nPress 1 to reDirect to main menu: ";
+            cin >> goMenu;
+            system("CLS");
+            
+            if(goMenu == 1)
+            {
+               // menu();
+            }
+            else
+            {
+                //menu();
+            }
         }
         
+        else if(hotelChoice == 2)
+        {
+            cout << "------------- Welcome to the Delta Hotel!!! -------\n" << endl;
+            cout << "Packages we offer: \n" << endl;
+            
+            cout << "1. Standard Package starting at $500" << endl;
+            cout << "2. Premium Package starting at $1000" << endl;
+            cout << "3. Luxury Package starting at 2000" << endl;
+            
+            cout << "\nSelect an option number above or press any other key to return to previous menu: " << endl;
+            cin >> packageBuff;
+            setPackChoice(packageBuff);
+            
+            // print out package selection otions
+            int newPacChoice = getPackChoice();
+            
+            if (newPacChoice == 1)
+            {
+                setHotelChoice(500.00);
+                
+                cout << " \nYou have booked your Standard reservation at the Delta" << endl;
+            }
+            else if (newPacChoice == 2)
+            {
+                setHotelChoice(1000.00);
+                
+                cout << " \nYou have booked your Premium reservation at the Delta" << endl;
+            }
+            else if (newPacChoice == 3)
+            {
+                setHotelChoice(2000.00);
+                
+                cout << " \nYou have booked your Luxury reservation at the Delta" << endl;
+                
+            }
+            else
+            {
+                cout << "Sorry that is invalid input, redirecting to previous menu" << endl;
+                system("CLS");
+                hotels();
+            }
+            
+            cout << "\nPress 1 to reDirect to main menu: ";
+            cin >> goMenu;
+            system("CLS");
+            
+            if(goMenu == 1)
+            {
+               // menu();
+            }
+            else
+            {
+                //menu();
+            }
+        }
+        else if(hotelChoice == 3)
+        {
+            cout << "------------- Welcome to The Hilton!!! -------\n" << endl;
+            cout << "Packages we offer: \n" << endl;
+            
+            cout << "1. Standard Package starting at $1500" << endl;
+            cout << "2. Premium Package starting at $5500" << endl;
+            cout << "3. Luxury Package starting at 15000" << endl;
+            
+            cout << "\nSelect an option number above or press any other key to return to previous menu: " << endl;
+            cin >> packageBuff;
+            setPackChoice(packageBuff);
+            
+            // print out package selection otions
+            int newPacChoice = getPackChoice();
+            
+            if(newPacChoice == 1)
+            {
+                setHotelChoice(1500.00);
+                
+                cout << " \nYou have booked your Standard reservation at the Hilton" << endl;
+            }
+            else if(newPacChoice == 2)
+            {
+                setHotelChoice(5500.00);
+                
+                cout << " \nYou have booked your Premium reservation at the Hilton" << endl;
+            }
+            else if(newPacChoice == 3)
+            {
+                setHotelChoice(15000.00);
+                
+                cout << " \nYou have booked your Luxury reservation at the Hilton" << endl;
+                
+            }
+            else
+            {
+                cout << "Sorry that is invalid input, redirecting to previous menu" << endl;
+                system("CLS");
+                hotels();
+            }
+            
+            cout << "\nPress 1 to reDirect to main menu: ";
+            cin >> goMenu;
+            system("CLS");
+            
+            if(goMenu == 1)
+            {
+               // menu();
+            }
+            else
+            {
+                //menu();
+            }
+        }
+         
         
     }
     
@@ -465,9 +631,40 @@ private:
 
 // class : Charges
 // date  : Dec 19th, 2022
-// comment : Contains all the attrubutes for the prices.
-class Charges
+// comment : inherits from all the other classess to gather costs and create
+//          the final bill for customer.
+class Charges : public Booking, Flights, Customers
 {
+public:
+    
+  
+    
+    // Method   :   printBill()
+    // Date     :   December 27th, 2022
+    // Comment  :
+    //              Called to print bill
+    //
+    void printBill()
+    {
+        ofstream outf("receipt.txt");
+        {
+            outf << "-----------Booking Agency-----------" << endl;
+            outf << "---------------Recept---------------" << endl;
+            outf << "____________________________________" << endl;
+            
+            outf << "Customer Id:" << getCustId() << endl << endl;
+            outf << "Description\t\t Total" << endl;
+            outf << "Hotel Cost\t\t " << fixed << setprecision(2) << gethotelPrice() << endl << endl;
+            outf << "Flight Cost\t\t " << fixed << setprecision(2) << getPrice() << endl << endl;
+            
+            outf << "____________________________________" << endl;
+            outf << "Total Charge\t\t" << setprecision(2) << gethotelPrice()+getPrice() << endl;
+            outf << "____________________________________" << endl;
+            outf << "-----------Thank you ---------------" << endl;
+        }
+        
+        
+    }
     
 };
 
