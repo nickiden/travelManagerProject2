@@ -14,6 +14,9 @@
  
 using namespace std;
 
+// set declairations/prototypes
+void menu();
+
 
 // Classs used in project
 
@@ -171,7 +174,7 @@ public:
             cout << "Enter Gender: ";
             cin >> gender;
         }
-        output << "\nCustomer ID: " << customerId << "\nName: " << name << "\nAge: " << age << "\nPhone" << phone << "\nAddress: " << address << "\ngender: " << gender << endl;
+        output << "\nCustomer ID: " << customerId << "\nName: " << name << "\nAge: " << age << "\nPhone" << phone << "\nAddress: " << address << "\nGender: " << gender << endl;
         
         output.close(); // close stream
         
@@ -337,7 +340,7 @@ public:
         else
         {
             cout << "Invalid option" << endl; // sleep redirect to previous menu.
-            // menu();
+            menu();
             
         }
         
@@ -347,11 +350,11 @@ public:
         
         if(flightChoice == 1)
         {
-           // menu();
+            menu();
         }
         else
         {
-            //menu();
+            menu();
         }
     }
     
@@ -440,6 +443,7 @@ public:
         int packageBuff = 0;
         int goMenu;
         string hotelNo[] = {"Best Western", "The Delta", "The Hilton"};
+        
         
         // loop through the hotel options
         for(int i = 0; i < 3; i++ )
@@ -637,6 +641,8 @@ class Charges : public Booking, Flights, Customers
 {
 public:
     
+    char all[999];
+    
   
     
     // Method   :   printBill()
@@ -663,15 +669,149 @@ public:
             outf << "-----------Thank you ---------------" << endl;
         }
         
-        
+        outf.close();
     }
+    
+    
+    // Method   :   showBill()
+    // Date     :   Jan 3rd, 2023
+    // Comment  :
+    //              Display bill created by printBill()
+    //
+    
+    void showBill()
+    {
+        ifstream inf("receipt.txt");
+        {
+            if(!inf)
+            {
+                cout << "Unable to open file!"<< endl;
+            }
+            
+            while(!(inf.eof()))
+            {
+                inf.getline(all,999);
+                cout << all << endl;
+                
+            }
+        }
+    }
+    
     
 };
 
 
 int main(int argc, const char * argv[]) {
    
-    
+    menu();
     
     return 0;
 }
+
+
+void menu()
+{
+    int mainChoice = 0;
+    int CustChoice = 0;
+    int goToMenu = 0;
+    
+    cout << "\t\t     * Travel Booking Service * \n" << endl;
+    cout << "---------------------Main Menu------------------" << endl;
+    
+    cout << "\t______________________________________________" << endl;
+    cout << "\t1. Customer Management" << endl;
+    cout << "\t2. Flight Management" << endl;
+    cout << "\t3. Booking Management" << endl;
+    cout << "\t4. Billing" << endl;
+    cout << "\t5. Exit" << endl;
+    cout << "************************************************" << endl;
+    
+    cout << "\nEnter Your Selection: " << endl;
+    cin >> mainChoice;
+    
+    system("CLS");
+    
+    // create objects
+    Customers customerMake;
+    Flights flightMake;
+    Booking bookingMake;
+    Charges chargesMake;
+    
+    if(mainChoice == 1)
+    {
+        cout << "-------Customers---------\n" << endl;
+        cout << "\t1. Enter New Customer" << endl;
+        cout << "\t2. Show old customers" << endl;
+        
+        cout << "Enter Choice: " << endl;
+        cin >> CustChoice;
+        
+        if(CustChoice == 1)
+        {
+            customerMake.getDetails();
+        }
+        else if(CustChoice == 2)
+        {
+            customerMake.showDetails();
+        }
+        else
+        {
+            cout << "Sorry that is invalid input, redirecting to previous menu" << endl;
+            system("CLS");
+            menu();
+        }
+        
+        cout << "\n Press 1 to redirect to main menu" << endl;
+        cin >> goToMenu;
+        system("CLS");
+        
+        if(goToMenu == 1)
+        {
+            menu();
+        }
+        else
+        {
+            menu();
+        }
+        
+    }
+    
+    else if(mainChoice == 2)
+    {
+        flightMake.flightDetails();
+    }
+    else if(mainChoice == 3)
+    {
+        bookingMake.hotels();
+    }
+    else if(mainChoice == 4)
+    {
+        chargesMake.printBill();
+        chargesMake.showBill();
+        
+        cout << "Press 1 to go back to main menu: " << endl;
+        cin >> goToMenu;
+        if(goToMenu)
+        {
+            system("CLS");
+            menu();
+        }
+        else
+        {
+            system("CLS");
+            menu();
+        }
+    }
+    else if(mainChoice == 5)
+    {
+        cout<< "---------Goodbye-----------" << endl;
+        system("CLS");
+        menu();
+        
+        
+    }
+    
+    
+    
+}
+
