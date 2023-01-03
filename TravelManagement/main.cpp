@@ -19,6 +19,29 @@ using namespace std;
 void menu();
 
 
+
+class ManageMenu
+{
+protected:
+    string userName;
+    
+public:
+    
+    // Constructor for class
+    ManageMenu()
+    {
+        menu();
+    }
+    
+    // Deconstructor for class
+    ~ManageMenu()
+    {
+        
+    }
+    
+};
+
+
 // Classs used in project
 
 // class : Customers
@@ -250,9 +273,9 @@ public:
     
     void setPrice(float p)
     {
-        if (p <= 0)
+        if (p <= 0.00)
         {
-            price = 0;
+            price = 0.00;
         }
         else
         {
@@ -314,7 +337,24 @@ public:
             cout << "Press 2 for more options: ";
             cin >> optConfirm;
             
-            system("clear");
+            // confirm option selected by user
+            if(optConfirm == 1)
+            {
+                setPrice(costTotal);
+                cout << "\nYou are booked for your flight. Go to main menu for recipt. "<< endl;
+                
+            }
+            else if(optConfirm == 2)
+            {
+                flightDetails(); // back to menu
+            }
+            else
+            {
+                cout << "Invalid option" << endl; // sleep redirect to previous menu.
+                menu();
+                
+            }
+           
         }
         else if(flightChoice == 2)
         {
@@ -323,6 +363,24 @@ public:
             cout << "Press 1 to confirm: or";
             cout << "Press 2 for more options: ";
             cin >> optConfirm;
+            
+            // confirm option selected by user
+            if(optConfirm == 1)
+            {
+                setPrice(costTotal);
+                cout << "\nYou are booked for your flight. Go to main menu for recipt. "<< endl;
+                
+            }
+            else if(optConfirm == 2)
+            {
+                flightDetails(); // back to menu
+            }
+            else
+            {
+                cout << "Invalid option" << endl; // sleep redirect to previous menu.
+                menu();
+                
+            }
         }
         else
         {
@@ -331,22 +389,7 @@ public:
             cin >> optConfirm;
         }
         
-        // confirm option selected by user
-        if(optConfirm == 1)
-        {
-            setPrice(costTotal);
-            cout << "\nYou are booked for your flight. Go to main menu for recipt. "<< endl;
-        }
-        else if(optConfirm == 2)
-        {
-            flightDetails(); // back to menu
-        }
-        else
-        {
-            cout << "Invalid option" << endl; // sleep redirect to previous menu.
-            menu();
-            
-        }
+       
         
         cout << "\nPress 1 to reDirect to main menu: ";
         cin >> flightChoice;
@@ -409,9 +452,9 @@ public:
     
     void setHotelPrice(float p)
     {
-        if (p <= 0)
+        if (p <= 0.00)
         {
-            hotelCost = 0;
+            hotelCost = 0.00;
         }
         else
         {
@@ -447,13 +490,13 @@ public:
         int hotelBuff = 0;
         int packageBuff = 0;
         int goMenu;
-        string hotelNo[] = {"Best Western", "The Delta", "The Hilton"};
+        string hotelNo[] = {" Best Western", " The Delta", " The Hilton"};
         
         
         // loop through the hotel options
         for(int i = 0; i < 3; i++ )
         {
-            cout << (i + 1) << ".Hotel" << hotelNo[i] << endl;
+            cout << (i + 1) << ". Hotel" << hotelNo[i] << endl;
             
         }
         
@@ -716,9 +759,9 @@ public:
 };
 
 
-int main(int argc, const char * argv[]) {
+int main(void) {
    
-    menu();
+    ManageMenu startMenu;
     
     return 0;
 }
