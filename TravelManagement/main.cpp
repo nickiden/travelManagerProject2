@@ -10,6 +10,7 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
+#include <stdlib.h>
 
  
 using namespace std;
@@ -165,15 +166,17 @@ public:
             cin >> customerId;
             cout << "Enter Name: ";
             cin >> name;
+            cout << "Enter Gender: ";
+            cin >> gender;
             cout << "Enter Age: ";
             cin >> age;
             cout << "Enter phone number: ";
             cin >> phone;
             cout << "Enter Address: ";
-            cin >> address;
-            cout << "Enter Gender: ";
-            cin >> gender;
+            getline (cin,address);
+            
         }
+        
         output << "\nCustomer ID: " << customerId << "\nName: " << name << "\nAge: " << age << "\nPhone" << phone << "\nAddress: " << address << "\nGender: " << gender << endl;
         
         output.close(); // close stream
@@ -213,7 +216,7 @@ class Flights
 {
 private:
     int flightNum;
-    int distance;
+    float distance;
     float price;
     
 public:
@@ -232,11 +235,11 @@ public:
         }
     }
     
-    void setDistance(int d)
+    void setDistance(float d)
     {
         if (d <= 0)
         {
-            distance = 0;
+            distance = 0.00;
         }
         else
         {
@@ -265,7 +268,7 @@ public:
         return flightNum;
     }
     
-    int getDistance()
+    float getDistance()
     {
         return distance;
     }
@@ -278,7 +281,7 @@ public:
     void flightDetails()
     {
         int flightBuff = 0;
-        int distBuff = 0;
+        float distBuff = 0.0;
         float ecoCost = .45;
         float firstClCost = .75;
         int flightChoice = 0;
@@ -297,11 +300,12 @@ public:
         cin >> flightBuff;
         setFlightNum(flightBuff);
         
+        flightChoice = getFlightNum();
+        
         cout << "Enter the Kilometers you would like to fly: ";
         cin >> distBuff;
         setDistance(distBuff);
-        cin >> distance;
-        
+       
         if(flightChoice == 1)
         {
             costTotal = distBuff * ecoCost;
@@ -310,12 +314,12 @@ public:
             cout << "Press 2 for more options: ";
             cin >> optConfirm;
             
-            system("CLS");
+            system("clear");
         }
         else if(flightChoice == 2)
         {
             costTotal = distBuff * firstClCost;
-            cout << "Your Total cost for Econo class is $" << firstClCost<< endl;
+            cout << "Your Total cost for First class is $" << costTotal<< endl;
             cout << "Press 1 to confirm: or";
             cout << "Press 2 for more options: ";
             cin >> optConfirm;
@@ -346,7 +350,8 @@ public:
         
         cout << "\nPress 1 to reDirect to main menu: ";
         cin >> flightChoice;
-        system("CLS");
+        system("clear");
+        cout<< "---------Back to menu-----------" << endl;
         
         if(flightChoice == 1)
         {
@@ -457,7 +462,8 @@ public:
         cin >> hotelBuff;
         setHotelChoice(hotelBuff);
         
-        system("CLS");
+        system("clear");
+        cout<< "---------Back to menu-----------" << endl;
         
         // manage hotel choices
         if(hotelChoice == 1)
@@ -478,19 +484,19 @@ public:
             
             if(newPacChoice == 1)
             {
-                setHotelChoice(1000.00);
+                setHotelPrice(1000.00);
                 
                 cout << " \nYou have booked your Standard reservation at the Best Western" << endl;
             }
             else if(newPacChoice == 2)
             {
-                setHotelChoice(5000.00);
+                setHotelPrice(5000.00);
                 
                 cout << " \nYou have booked your Premium reservation at the Best Western" << endl;
             }
             else if(newPacChoice == 3)
             {
-                setHotelChoice(10000.00);
+                setHotelPrice(10000.00);
                 
                 cout << " \nYou have booked your Luxury reservation at the Best Western" << endl;
                 
@@ -498,21 +504,22 @@ public:
             else
             {
                 cout << "Sorry that is invalid input, redirecting to previous menu" << endl;
-                system("CLS");
+                system("clear");
                 hotels();
             }
             
             cout << "\nPress 1 to reDirect to main menu: ";
             cin >> goMenu;
-            system("CLS");
+            system("clear");
+            cout<< "---------Back to menu-----------" << endl;
             
             if(goMenu == 1)
             {
-               // menu();
+                menu();
             }
             else
             {
-                //menu();
+                menu();
             }
         }
         
@@ -534,19 +541,19 @@ public:
             
             if (newPacChoice == 1)
             {
-                setHotelChoice(500.00);
+                setHotelPrice(500.00);
                 
                 cout << " \nYou have booked your Standard reservation at the Delta" << endl;
             }
             else if (newPacChoice == 2)
             {
-                setHotelChoice(1000.00);
+                setHotelPrice(1000.00);
                 
                 cout << " \nYou have booked your Premium reservation at the Delta" << endl;
             }
             else if (newPacChoice == 3)
             {
-                setHotelChoice(2000.00);
+                setHotelPrice(2000.00);
                 
                 cout << " \nYou have booked your Luxury reservation at the Delta" << endl;
                 
@@ -554,21 +561,22 @@ public:
             else
             {
                 cout << "Sorry that is invalid input, redirecting to previous menu" << endl;
-                system("CLS");
+                system("clear");
                 hotels();
             }
             
             cout << "\nPress 1 to reDirect to main menu: ";
             cin >> goMenu;
-            system("CLS");
+            system("clear");
+            cout<< "---------Back to main menu-----------" << endl;
             
             if(goMenu == 1)
             {
-               // menu();
+               menu();
             }
             else
             {
-                //menu();
+                menu();
             }
         }
         else if(hotelChoice == 3)
@@ -589,19 +597,19 @@ public:
             
             if(newPacChoice == 1)
             {
-                setHotelChoice(1500.00);
+                setHotelPrice(1500.00);
                 
                 cout << " \nYou have booked your Standard reservation at the Hilton" << endl;
             }
             else if(newPacChoice == 2)
             {
-                setHotelChoice(5500.00);
+                setHotelPrice(5500.00);
                 
                 cout << " \nYou have booked your Premium reservation at the Hilton" << endl;
             }
             else if(newPacChoice == 3)
             {
-                setHotelChoice(15000.00);
+                setHotelPrice(15000.00);
                 
                 cout << " \nYou have booked your Luxury reservation at the Hilton" << endl;
                 
@@ -609,21 +617,22 @@ public:
             else
             {
                 cout << "Sorry that is invalid input, redirecting to previous menu" << endl;
-                system("CLS");
+                system("clear");
                 hotels();
             }
             
             cout << "\nPress 1 to reDirect to main menu: ";
             cin >> goMenu;
-            system("CLS");
+            system("clear");
+            cout<< "---------Back to main menu-----------" << endl;
             
             if(goMenu == 1)
             {
-               // menu();
+               menu();
             }
             else
             {
-                //menu();
+                menu();
             }
         }
          
@@ -652,19 +661,25 @@ public:
     //
     void printBill()
     {
+        
+        int printId = getCustId();
+        float printHotelPrice = gethotelPrice();
+        float printFlightPrice = getPrice();
+        
+        
         ofstream outf("receipt.txt");
         {
             outf << "-----------Booking Agency-----------" << endl;
             outf << "---------------Recept---------------" << endl;
             outf << "____________________________________" << endl;
             
-            outf << "Customer Id:" << getCustId() << endl << endl;
+            outf << "Customer Id:" << printId << endl << endl;
             outf << "Description\t\t Total" << endl;
-            outf << "Hotel Cost\t\t " << fixed << setprecision(2) << gethotelPrice() << endl << endl;
-            outf << "Flight Cost\t\t " << fixed << setprecision(2) << getPrice() << endl << endl;
+            outf << "Hotel Cost\t\t " << fixed << setprecision(2) << printHotelPrice << endl << endl;
+            outf << "Flight Cost\t\t " << fixed << setprecision(2) << printFlightPrice << endl << endl;
             
             outf << "____________________________________" << endl;
-            outf << "Total Charge\t\t" << setprecision(2) << gethotelPrice()+getPrice() << endl;
+            outf << "Total Charge\t\t" << setprecision(2) << printHotelPrice+printFlightPrice << endl;
             outf << "____________________________________" << endl;
             outf << "-----------Thank you ---------------" << endl;
         }
@@ -729,7 +744,8 @@ void menu()
     cout << "\nEnter Your Selection: " << endl;
     cin >> mainChoice;
     
-    system("CLS");
+    system("clear");
+    cout<< "---------Clearing Screen-----------" << endl;
     
     // create objects
     Customers customerMake;
@@ -757,13 +773,14 @@ void menu()
         else
         {
             cout << "Sorry that is invalid input, redirecting to previous menu" << endl;
-            system("CLS");
+            system("clear");
             menu();
         }
         
         cout << "\n Press 1 to redirect to main menu" << endl;
         cin >> goToMenu;
-        system("CLS");
+        system("clear");
+        cout<< "---------Back to Main Menu-----------" << endl;
         
         if(goToMenu == 1)
         {
@@ -793,20 +810,19 @@ void menu()
         cin >> goToMenu;
         if(goToMenu)
         {
-            system("CLS");
             menu();
         }
         else
         {
-            system("CLS");
             menu();
         }
     }
     else if(mainChoice == 5)
     {
+        
+        system("clear");
         cout<< "---------Goodbye-----------" << endl;
-        system("CLS");
-        menu();
+        exit(0);
         
         
     }
