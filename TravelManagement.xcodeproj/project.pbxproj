@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE09382A2967171200627788 /* Customers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE0938282967171200627788 /* Customers.cpp */; };
 		EE33D85E294FA1FD00E6BAF1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE33D85D294FA1FD00E6BAF1 /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		EE0938282967171200627788 /* Customers.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Customers.cpp; sourceTree = "<group>"; };
+		EE0938292967171200627788 /* Customers.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Customers.hpp; sourceTree = "<group>"; };
 		EE33D85A294FA1FD00E6BAF1 /* TravelManagement */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TravelManagement; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE33D85D294FA1FD00E6BAF1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				EE33D85D294FA1FD00E6BAF1 /* main.cpp */,
+				EE0938282967171200627788 /* Customers.cpp */,
+				EE0938292967171200627788 /* Customers.hpp */,
 			);
 			path = TravelManagement;
 			sourceTree = "<group>";
@@ -120,6 +125,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE33D85E294FA1FD00E6BAF1 /* main.cpp in Sources */,
+				EE09382A2967171200627788 /* Customers.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

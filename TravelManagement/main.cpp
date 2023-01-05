@@ -12,6 +12,8 @@
 #include <iomanip>
 #include <stdlib.h>
 
+#include "Customers.hpp"
+
  
 using namespace std;
 
@@ -44,195 +46,7 @@ public:
 };
 
 
-// Classs used in project
 
-// class : Customers
-// date  : Dec 19th, 2022
-// comment : Contains all the attrubutes for the booking customers
-
-class Customers
-{
-private:
-    
-    string name;
-    string gender;
-    string address;
-    int age;
-    string phone;
-    static int customerId;
-    char allDeets[1000];
-  
-    
-public:
-    
-    // create setter functions ###############################
-    void setName(string n)
-    {
-        if (n == "") // check if string is empty
-        {
-            name = "N/A";
-        }
-        else
-        {
-            name = n;
-        }
-      
-    }
-    
-    void setGender(string g)
-    {
-        if (g == "")
-        {
-            gender = "N/A";
-        }
-        else
-        {
-            gender = g;
-        }
-        
-    }
-    
-    void setAddress(string a)
-    {
-        if (a == "")
-        {
-            address = "N/A";
-        }
-        else
-        {
-            address = a;
-        }
-        
-    }
-    
-    void setAge(int a)
-    {
-        if (a <= 0)
-        {
-            age = 0;
-        }
-        else
-        {
-            age = a;
-        }
-        age = a;
-    }
-    
-    void setPhone(string p)
-    {
-        if (p == "")
-        {
-            phone = "N/A";
-        }
-        else
-        {
-            phone = p;
-        }
-        
-    }
-    
-    void setCustId(int c)
-    {
-        if (c <= 0)
-        {
-            customerId = 0;
-        }
-        else
-        {
-            customerId = c;
-
-        }
-    }
-    
-    
-    // create getters to access private variables ###################
-    
-    string getName()
-    {
-        return name;
-    }
-    
-    string getGender()
-    {
-        return gender;
-    }
-    
-    string getAddress()
-    {
-        return address;
-    }
-    
-    int getAge()
-    {
-        return age;
-    }
-    
-    string getPhone()
-    {
-        return phone;
-    }
-    
-    int getCustId()
-    {
-        return customerId;
-    }
-    
-    
-    
-    
-    // method   : getDetails
-    // comment  : Get input from user and store user details
-    //
-    void getDetails()
-    {
-        ofstream output("old-customers.txt", ios::app); //output file of customers
-        {
-            cout << "Enter Customer ID: ";
-            cin >> customerId;
-            cout << "Enter Name: ";
-            cin >> name;
-            cout << "Enter Gender: ";
-            cin >> gender;
-            cout << "Enter Age: ";
-            cin >> age;
-            cout << "Enter phone number: ";
-            cin >> phone;
-            cout << "Enter Address: ";
-            getline (cin,address);
-            
-        }
-        
-        output << "\nCustomer ID: " << customerId << "\nName: " << name << "\nAge: " << age << "\nPhone" << phone << "\nAddress: " << address << "\nGender: " << gender << endl;
-        
-        output.close(); // close stream
-        
-        cout << "\nSAVED \n"<<endl;
-    }
-    
-    // method   :   showDetails
-    // comment  :
-    //              Check if file is created, if so save in an array and display
-    void showDetails()
-    {
-        ifstream input("old-customers.txt");
-        {
-            // check that there is an input
-            if(!input)
-            {
-                cout << "Sorry, File Error"<< endl;
-            }
-            while((!(input.eof()))) // loop through file print contents
-            {
-                input.getline(allDeets,1000);
-                cout << allDeets << endl;
-            }
-            input.close();  // close stream
-            
-        }
-    }
-  
-    
-};
 
 // class : flights
 // date  : December 21st, 2022
@@ -768,7 +582,8 @@ float Booking::hotelCost;
 
 int main(void) {
    
-    ManageMenu startMenu;
+  //  ManageMenu startMenu;
+    menu();
     
     return 0;
 }
