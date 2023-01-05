@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		EE09382A2967171200627788 /* Customers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE0938282967171200627788 /* Customers.cpp */; };
+		EE09382D29671F8100627788 /* Flights.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE09382B29671F8100627788 /* Flights.cpp */; };
+		EE0938302967223C00627788 /* Bookings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE09382E2967223C00627788 /* Bookings.cpp */; };
+		EE0938332967240800627788 /* Charges.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE0938312967240800627788 /* Charges.cpp */; };
 		EE33D85E294FA1FD00E6BAF1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE33D85D294FA1FD00E6BAF1 /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +29,12 @@
 /* Begin PBXFileReference section */
 		EE0938282967171200627788 /* Customers.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Customers.cpp; sourceTree = "<group>"; };
 		EE0938292967171200627788 /* Customers.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Customers.hpp; sourceTree = "<group>"; };
+		EE09382B29671F8100627788 /* Flights.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Flights.cpp; sourceTree = "<group>"; };
+		EE09382C29671F8100627788 /* Flights.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Flights.hpp; sourceTree = "<group>"; };
+		EE09382E2967223C00627788 /* Bookings.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Bookings.cpp; sourceTree = "<group>"; };
+		EE09382F2967223C00627788 /* Bookings.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Bookings.hpp; sourceTree = "<group>"; };
+		EE0938312967240800627788 /* Charges.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Charges.cpp; sourceTree = "<group>"; };
+		EE0938322967240800627788 /* Charges.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Charges.hpp; sourceTree = "<group>"; };
 		EE33D85A294FA1FD00E6BAF1 /* TravelManagement */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TravelManagement; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE33D85D294FA1FD00E6BAF1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,6 +72,12 @@
 				EE33D85D294FA1FD00E6BAF1 /* main.cpp */,
 				EE0938282967171200627788 /* Customers.cpp */,
 				EE0938292967171200627788 /* Customers.hpp */,
+				EE09382B29671F8100627788 /* Flights.cpp */,
+				EE09382C29671F8100627788 /* Flights.hpp */,
+				EE09382E2967223C00627788 /* Bookings.cpp */,
+				EE09382F2967223C00627788 /* Bookings.hpp */,
+				EE0938312967240800627788 /* Charges.cpp */,
+				EE0938322967240800627788 /* Charges.hpp */,
 			);
 			path = TravelManagement;
 			sourceTree = "<group>";
@@ -124,8 +139,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE09382D29671F8100627788 /* Flights.cpp in Sources */,
+				EE0938302967223C00627788 /* Bookings.cpp in Sources */,
 				EE33D85E294FA1FD00E6BAF1 /* main.cpp in Sources */,
 				EE09382A2967171200627788 /* Customers.cpp in Sources */,
+				EE0938332967240800627788 /* Charges.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
