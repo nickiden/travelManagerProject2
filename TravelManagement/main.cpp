@@ -20,6 +20,8 @@ void menu();
 
 
 
+
+
 class ManageMenu
 {
 protected:
@@ -57,7 +59,7 @@ private:
     string address;
     int age;
     string phone;
-    int customerId;
+    static int customerId;
     char allDeets[1000];
   
     
@@ -240,7 +242,7 @@ class Flights
 private:
     int flightNum;
     float distance;
-    float price;
+    static float price;
     
 public:
     
@@ -420,7 +422,7 @@ class Booking
 private:
     int hotelChoice;
     int packChoice;
-    float hotelCost;
+    static float hotelCost;
     
 public:
     // mutators and accessors for the booking class.
@@ -757,6 +759,11 @@ public:
     
     
 };
+
+// set static variables
+int Customers::customerId;
+float Flights::price;
+float Booking::hotelCost;
 
 
 int main(void) {
